@@ -6,8 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E988E7122CEDB914004809B3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E988E7112CEDB90F004809B3 /* .swiftlint.yml */; };
+		E988E7152CEDEC1B004809B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E988E7142CEDEC1B004809B3 /* Images.xcassets */; };
+		E988E71D2CEE0569004809B3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E988E71C2CEE0569004809B3 /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		E988E6E62CE47134004809B3 /* Week3Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Week3Counter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E988E7112CEDB90F004809B3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E988E7142CEDEC1B004809B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E988E71D2CEE0569004809B3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +54,8 @@
 		E988E6DD2CE47133004809B3 = {
 			isa = PBXGroup;
 			children = (
+				E988E7142CEDEC1B004809B3 /* Images.xcassets */,
+				E988E7112CEDB90F004809B3 /* .swiftlint.yml */,
 				E988E6E82CE47134004809B3 /* Week3Counter */,
 				E988E6E72CE47134004809B3 /* Products */,
 			);
@@ -68,7 +79,7 @@
 				E988E6E22CE47134004809B3 /* Sources */,
 				E988E6E32CE47134004809B3 /* Frameworks */,
 				E988E6E42CE47134004809B3 /* Resources */,
-				E988E70E2CEB578A004809B3 /* ShellScript */,
+				E988E70E2CEB578A004809B3 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -79,6 +90,7 @@
 			);
 			name = Week3Counter;
 			packageProductDependencies = (
+				E988E71C2CEE0569004809B3 /* SnapKit */,
 			);
 			productName = Week3Counter;
 			productReference = E988E6E62CE47134004809B3 /* Week3Counter.app */;
@@ -108,6 +120,9 @@
 			);
 			mainGroup = E988E6DD2CE47133004809B3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E988E71B2CEE0569004809B3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E988E6E72CE47134004809B3 /* Products */;
 			projectDirPath = "";
@@ -123,13 +138,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E988E7122CEDB914004809B3 /* .swiftlint.yml in Resources */,
+				E988E7152CEDEC1B004809B3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E988E70E2CEB578A004809B3 /* ShellScript */ = {
+		E988E70E2CEB578A004809B3 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,13 +155,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint not installed. Install it using 'brew install swiftlint'.\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -167,11 +185,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NJT372RG3U;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Week3Counter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -195,11 +213,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NJT372RG3U;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Week3Counter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -356,6 +374,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E988E71B2CEE0569004809B3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E988E71C2CEE0569004809B3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E988E71B2CEE0569004809B3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E988E6DE2CE47133004809B3 /* Project object */;
 }
